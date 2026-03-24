@@ -1,5 +1,6 @@
 package ru.job4j.services.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,15 @@ public class StudentController {
     public ResponseEntity<Student> findByStudentId(@PathVariable String studentId) {
         return service.findByStudentId(studentId)
                 .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/{studentId}/photo")
+    public ResponseEntity<byte[]> getPhoto(@PathVariable String studentId) {
+        return service.getStudentPhoto(studentId)
+                .map(data -> ResponseEntity.ok()
+                        .contentType(MediaType.IMAGE_JPEG)
+                        .body(data))
                 .orElse(ResponseEntity.notFound().build());
     }
 }
