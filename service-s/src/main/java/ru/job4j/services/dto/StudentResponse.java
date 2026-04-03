@@ -1,5 +1,8 @@
 package ru.job4j.services.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class StudentResponse {
 
     private String requestId;

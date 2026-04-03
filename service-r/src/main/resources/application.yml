@@ -4,9 +4,11 @@ server:
 spring:
   application:
     name: service-r
+  jackson:
+    default-property-inclusion: non_null
   kafka:
     bootstrap-servers: kafka:9092
 
 logging:
   level:
-    ru.job4j.servicer: DEBUG
+    ru.job4j: DEBUG

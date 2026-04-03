@@ -1,11 +1,15 @@
 package ru.job4j.servicer.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 public class StudentResponse {
 
     private String requestId;
     private String studentId;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private StudentData student;
-    private byte[] photo;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String photo;
     private boolean success;
     private String errorMessage;
 
@@ -36,11 +40,11 @@ public class StudentResponse {
         this.student = student;
     }
 
-    public byte[] getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

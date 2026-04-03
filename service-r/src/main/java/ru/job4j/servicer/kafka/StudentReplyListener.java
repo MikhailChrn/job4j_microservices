@@ -28,11 +28,11 @@ public class StudentReplyListener {
     public void onReply(String xml) {
         try {
             String json = converter.xmlToJson(xml);
-            log.info("Received XML, converted to JSON");
+            log.info("Converted JSON: {}", json);
             StudentResponse response = jsonMapper.readValue(json, StudentResponse.class);
             gateway.complete(response);
         } catch (Exception e) {
-            log.error("Failed to parse XML reply from Kafka", e);
+            log.error("Failed to parse XML: {}", xml, e);
         }
     }
 }

@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: service-s
+  jackson:
+    default-property-inclusion: non_null
   kafka:
     bootstrap-servers: kafka:9092
   datasource:
@@ -15,6 +17,10 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: false
+
+logging:
+  level:
+    ru.job4j: DEBUG
 
 minio:
   endpoint: http://minio:9000
