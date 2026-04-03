@@ -6,18 +6,10 @@ spring:
     name: service-s
   kafka:
     bootstrap-servers: kafka:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    consumer:
-      group-id: service-s-group
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      auto-offset-reset: earliest
   datasource:
-    url: jdbc:postgresql://postgres:5432/studentsdb
+    url: jdbc:postgresql://postgres:5432/students_db
     username: postgres
-    password: password
+    password: postgres
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
